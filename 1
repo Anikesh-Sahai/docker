@@ -40,18 +40,42 @@ docker container stop f708b7ee1a8b
 to stop an image we us e the above command
 
 docker run -d -p 5001:8080 in28min/hello-world-rest-api:0.0.1.RELEASE
+here we are running the rest api
+
+
 docker pull mysql
+here we are only pulling the repo to local for availability with latest tag as we are not specified the tag
+
 docker search mysql
+here we are searching the repo on docker hub
+
 docker image history in28min/hello-world-java:0.0.1.RELEASE
+getting the image history 
+
 docker image history 100229ba687e
+getting the image history using id
+
 docker image inspect 100229ba687e
+getting docker image details 
+
 docker image remove mysql
+removing the image from local
+
 docker image remove in28min/hello-world-java:0.0.1.RELEASE
+removing the image from local, getting errror while removing that means some container is running on that image
+
 docker container rm 3e657ae9bd16
-docker container ls -a
+removing the container from local with id
+
 docker container pause 832
+pausing the container , it will not serve any request
+
 docker container unpause 832
+unpausing the container
+
 docker container stop 832
+stopping the container
+
 docker container inspect ff521fa58db3
 docker container prune
 docker system
