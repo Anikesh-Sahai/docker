@@ -1,14 +1,14 @@
-FROM python:alpine3.10      
+# FROM python:alpine3.10      
 # base image 
-WORKDIR /app 
+# WORKDIR /app 
 # initiliazing working directory
-COPY . /app
+# COPY . /app
 # copying the current directory to the working directory
-RUN pip install -r requirements.txt
+# RUN pip install -r requirements.txt
 # installing the requirements present in requirements.txt
-EXPOSE 5000
+# EXPOSE 5000
 # exposing the port 5000 to outside world
-CMD python ./launch.py
+# CMD python ./launch.py
 # running the launch.py file
 
 #COPY requirements.txt /app/requirements.txt
@@ -20,3 +20,13 @@ CMD python ./launch.py
 
 # for running
 # docker run -p 5000:5000 -d in28min/hello-world-python:0.0.2.RELEASE
+
+# for faster build
+
+FROM python:alpine3.10      
+WORKDIR /app 
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+EXPOSE 5000
+COPY . /app
+CMD python ./launch.py

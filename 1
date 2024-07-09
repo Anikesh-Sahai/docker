@@ -144,12 +144,15 @@ docker run -d -p 5001:5000 in28min/hello-world-nodejs:0.0.3.RELEASE ping google.
  
  
 docker run -d -p 8000:8000 --name=currency-exchange in28min/currency-exchange:0.0.1-RELEASE
+--name is used to give name to container
 docker run -d -p 8100:8100 --name=currency-conversion in28min/currency-conversion:0.0.1-RELEASE
  
 docker network ls
 docker network inspect bridge
  
 docker run -d -p 8100:8100 --env CURRENCY_EXCHANGE_SERVICE_HOST=http://currency-exchange --name=currency-conversion --link currency-exchange in28min/currency-conversion:0.0.1-RELEASE
+--link is used to link the container
+--env is used to pass environment variable
  
 docker network create currency-network
 docker container stop currency-exchange
